@@ -9,6 +9,7 @@ ohakutsuのNewポートフォリオサイトです。
 ## 使用技術
 
 - React
+- React Hooks
 - Webpack
 - Babel
 - ESLint
