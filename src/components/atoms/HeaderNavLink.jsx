@@ -16,15 +16,15 @@ const Li = styled.li`
   }
 `
 
-export default function HeaderNavLink ({ handleClickNavLink, title }) {
+export default function HeaderNavLink ({ handleClick, title }) {
   return (
     <Li>
-      <a onClick={handleClickNavLink}>{title}</a>
+      <a onClick={handleClick}>{title}</a>
     </Li>
   )
 }
 
 HeaderNavLink.propTypes = {
-  handleClickNavLink: PropTypes.func,
+  handleClick: PropTypes.func,
   title: PropTypes.string
 }
