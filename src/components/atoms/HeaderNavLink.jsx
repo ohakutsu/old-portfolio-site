@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 
 const Li = styled.li`
   display: inline-block;
-  margin: 0;
   list-style-type: none;
 
   > a {
-    font-size: 2rem;
-
     :hover {
       cursor: pointer;
     }
