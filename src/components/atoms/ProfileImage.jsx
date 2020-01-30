@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const imageBaseStyle = `
+  display: inline-block;
   width: 200px;
   height: 200px;
-  border-radius: 5rem;
+  border-radius: 10px;
 `
 const Loading = styled.div`
-  display: inline-block;
   ${imageBaseStyle}
   background: linear-gradient(90deg, #ccc, #eee, #ccc);
   background-size: 200% auto;
@@ -26,24 +26,30 @@ const Img = styled.img`
   ${imageBaseStyle}
 `
 
-export default function ProfileImage ({ url }) {
+export default function ProfileImage ({ src }) {
   const [isLoading, setIsLoading] = useState(true)
+  const [imageSrc, setImageSrc] = useState(undefined)
   const imgRef = useRef()
 
   useEffect(() => {
-    imgRef.current.addEventListener('load', () => {
-      setIsLoading(false)
-    })
+    setImageSrc(prevImageSrc => (prevImageSrc || src))
+
+    const handleLoading = () => setIsLoading(false)
+    imgRef.current.addEventListener('load', handleLoading)
+
+    return () => {
+      imgRef.current.removeEventListener('load', handleLoading)
+    }
   }, [])
 
   return (
     <>
       {isLoading && <Loading />}
-      <Img ref={imgRef} src={url} hidden={isLoading} />
+      <Img ref={imgRef} src={imageSrc} hidden={isLoading} />
     </>
   )
 }
 
 ProfileImage.propTypes = {
-  url: PropTypes.string
+  src: PropTypes.string
 }
