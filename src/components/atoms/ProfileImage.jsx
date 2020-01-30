@@ -2,11 +2,14 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+const imageBaseStyle = `
+  width: 200px;
+  height: 200px;
+  border-radius: 5rem;
+`
 const Loading = styled.div`
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 0.4rem;
+  ${imageBaseStyle}
   background: linear-gradient(90deg, #ccc, #eee, #ccc);
   background-size: 200% auto;
   animation: loading 0.5s infinite linear;
@@ -20,9 +23,7 @@ const Loading = styled.div`
   }
 `
 const Img = styled.img`
-  width: 100px;
-  height: 100px;
-  border-radius: 0.4rem;
+  ${imageBaseStyle}
 `
 
 export default function ProfileImage ({ url }) {

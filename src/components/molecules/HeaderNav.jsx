@@ -13,9 +13,11 @@ const Ul = styled.ul`
 
 export default function HeaderNav () {
   return (
-    <Ul>
-      <HeaderNavLink title='Home' handleClick={() => console.log('Go to Home page.')} />
-      <HeaderNavLink title='Posts' handleClick={() => console.log('Go to Posts page.')} />
-    </Ul>
+    <nav>
+      <Ul>
+        <HeaderNavLink title='Home' handleClick={() => console.log('Go to Home page.')} />
+        <HeaderNavLink title='Posts' handleClick={() => console.log('Go to Posts page.')} />
+      </Ul>
+    </nav>
   )
 }
