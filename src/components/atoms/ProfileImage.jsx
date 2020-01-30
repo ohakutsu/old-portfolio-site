@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const imageBaseStyle = `
-  display: inline-block;
   width: 200px;
   height: 200px;
   border-radius: 10px;
 `
 const Loading = styled.div`
+  display: inline-block;
   ${imageBaseStyle}
   background: linear-gradient(90deg, #ccc, #eee, #ccc);
   background-size: 200% auto;
