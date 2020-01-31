@@ -35,7 +35,7 @@ export default function PostList ({ posts }) {
   } else {
     postItems = []
     for (let i = 0; i < 5; i++) {
-      postItems.push(<PostItemLoading />)
+      postItems.push(<PostItemLoading key={i} />)
     }
   }
 
