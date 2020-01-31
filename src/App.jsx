@@ -1,17 +1,27 @@
-import React, { useState } from 'react'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import Header from './components/organisms/Header'
+import Home from './pages/Home'
+import Posts from './pages/Posts'
 
 export default function App () {
-  const [count, setCount] = useState(0)
-
-  const handleClick = () => {
-    setCount(prevCount => prevCount + 1)
-  }
-
   return (
-    <>
-      <h1>Welcome to ohakutsu portfolio!</h1>
-      <p>Count: {count}</p>
-      <button onClick={handleClick}>Increment</button>
-    </>
+    <Router>
+      <Header />
+
+      <Switch>
+        <Route path='/posts'>
+          <Posts />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
