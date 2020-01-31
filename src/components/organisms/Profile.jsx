@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import ProfileImage from '../atoms/ProfileImage'
 import ProfileName from '../atoms/ProfileName'
 import SnsLink from '../atoms/SnsLink'
+import loadingStyle from '../../lib/loadingStyle'
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const Right = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
   }
 `
 const FullName = styled.div`
@@ -60,15 +61,36 @@ const LinksWrapper = styled.div`
     text-align: center;
   }
 `
+const DescLoading = styled.div`
+  margin: 20px 0;
+  width: 100%;
+  height: 29px;
+  ${loadingStyle}
+  @media (max-width: 767.98px) {
+    margin: 10px 0;
+    height: 24px;
+  }
+`
+const SnsLinksLoading = styled.div`
+  width: 100%;
+  height: 44px;
+  ${loadingStyle}
+  @media (max-width: 767.98px) {
+    text-align: center;
+  }
+`
 
 export default function Profile ({ imageSrc, description, snsLinks }) {
-  const snsList = snsLinks.map(snsLink => {
-    const { link, title } = snsLink
+  let snsList
+  if (snsLinks) {
+    snsList = snsLinks.map(snsLink => {
+      const { link, title } = snsLink
 
-    return (
-      <SnsLink key={title} href={link} text={title} />
-    )
-  })
+      return (
+        <SnsLink key={title} href={link} text={title} />
+      )
+    })
+  }
 
   return (
     <Wrapper>
@@ -78,10 +100,12 @@ export default function Profile ({ imageSrc, description, snsLinks }) {
       <Right>
         <ProfileName text='ohakutsu' />
         <FullName>TakuyaHanada</FullName>
-        <Description>{description}</Description>
-        <LinksWrapper>
-          {snsList}
-        </LinksWrapper>
+        {description ? <Description>{description}</Description> : <DescLoading />}
+        {snsLinks ? (
+          <LinksWrapper>
+            {snsList}
+          </LinksWrapper>
+        ) : <SnsLinksLoading />}
       </Right>
     </Wrapper>
   )
