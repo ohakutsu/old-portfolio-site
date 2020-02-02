@@ -44,7 +44,7 @@ const ReleaseDate = styled.div`
 
 export default function PostItem ({ link, provider, title, date }) {
   return (
-    <Wrapper href={link}>
+    <Wrapper href={link} target='_blank'>
       <Provider>{provider}</Provider>
       <Title>{title}</Title>
       <ReleaseDate>{dateFormatter(date)}</ReleaseDate>

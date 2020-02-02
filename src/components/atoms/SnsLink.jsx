@@ -20,7 +20,7 @@ const Button = styled.a`
 
 export default function SnsLink ({ href, text }) {
   return (
-    <Button href={href}>{text}</Button>
+    <Button href={href} target='_blank'>{text}</Button>
   )
 }
 
