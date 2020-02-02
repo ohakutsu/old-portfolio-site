@@ -1,5 +1,8 @@
 # Newポートフォリオサイト
 
+## URL
+https://www.ohakutsu.com/
+
 ## 概要
 
 ohakutsuのNewポートフォリオサイトです。
@@ -11,9 +14,9 @@ ohakutsuのNewポートフォリオサイトです。
 - React
 - React Hooks
 - Webpack
-- Babel
-- ESLint
-- Jest（予定）
+- WorkBox
+- S3
+- CloudFront
 
 ## 実行方法
 
